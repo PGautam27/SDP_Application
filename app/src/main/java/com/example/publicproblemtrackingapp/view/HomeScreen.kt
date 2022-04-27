@@ -14,6 +14,8 @@ import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.publicproblemtrackingapp.ui.theme.Orange
+import com.example.publicproblemtrackingapp.ui.theme.Yellow
 import com.google.accompanist.flowlayout.FlowRow
 import com.google.accompanist.flowlayout.MainAxisAlignment
 
@@ -24,13 +26,13 @@ fun HomeScreen() {
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
             .fillMaxSize()
-            .background(color = Color(0xFFFDD835))
+            .background(color = Yellow)
     ) {
         Text(
             AnnotatedString(text = "Welcome to ", spanStyle = SpanStyle(fontSize = 20.sp)).plus(
                 AnnotatedString(
                     text = "Problem Tracker",
-                    spanStyle = SpanStyle(color = Color(0xFFFF9800),fontSize = 25.sp)
+                    spanStyle = SpanStyle(color = Orange,fontSize = 25.sp)
                 )
             )
         )
@@ -43,8 +45,8 @@ fun HomeScreen() {
             Button(
                 onClick = { /*TODO*/ },
                 colors = ButtonDefaults.buttonColors(
-                    backgroundColor = Color(0xFFFF9800),
-                    contentColor = Color(0xFFFDD835)
+                    backgroundColor = Orange,
+                    contentColor = Yellow
                 )
             ) {
                 Text(text = "ADMIN")
@@ -52,8 +54,8 @@ fun HomeScreen() {
             Button(
                 onClick = { /*TODO*/ },
                 colors = ButtonDefaults.buttonColors(
-                    backgroundColor = Color(0xFFFF9800),
-                    contentColor = Color(0xFFFDD835)
+                    backgroundColor = Orange,
+                    contentColor = Yellow
                 )
             ) {
                 Text(text = "USER")
