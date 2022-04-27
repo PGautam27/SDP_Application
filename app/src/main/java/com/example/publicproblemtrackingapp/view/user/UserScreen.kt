@@ -34,7 +34,7 @@ fun UserScreen(navController: NavController) {
                 .background(color = Yellow)
                 .fillMaxSize()
         ) {
-            Text(text = "Already Have an Account", style = TextStyle( fontSize = 25.sp,fontWeight = FontWeight.Bold))
+            Text(text = "Already Have an Account", style = TextStyle( fontSize = LocalConfiguration.current.fontScale.times(25).sp,fontWeight = FontWeight.Bold))
             Spacer(modifier = Modifier.padding(10.dp))
             Button(
                 onClick = { navController.navigate(Screen.UserLoginScreen.route) },
@@ -48,12 +48,12 @@ fun UserScreen(navController: NavController) {
                         LocalConfiguration.current.screenWidthDp.dp - 40.dp
                     )
             ) {
-                Text(text = "LOGIN")
+                Text(text = "SIGN IN", style = TextStyle(fontWeight = FontWeight.Bold))
             }
             Spacer(modifier = Modifier.padding(10.dp))
             Divider(color = Orange, thickness = 2.dp, modifier = Modifier.width(LocalConfiguration.current.screenWidthDp.dp -80.dp))
             Spacer(modifier = Modifier.padding(10.dp))
-            Text(text = "Don't have One?",style = TextStyle( fontSize = 25.sp, fontWeight = FontWeight.Bold))
+            Text(text = "Don't have One?",style = TextStyle( fontSize = LocalConfiguration.current.fontScale.times(25).sp, fontWeight = FontWeight.Bold))
             Spacer(modifier = Modifier.padding(10.dp))
             Button(
                 onClick = { /*TODO*/ },
@@ -67,7 +67,7 @@ fun UserScreen(navController: NavController) {
                         LocalConfiguration.current.screenWidthDp.dp - 40.dp
                     )
             ) {
-                Text(text = "SIGN UP")
+                Text(text = "SIGN UP", style = TextStyle(fontWeight = FontWeight.Bold))
             }
         }
     }

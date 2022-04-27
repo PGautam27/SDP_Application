@@ -32,15 +32,15 @@ fun HomeScreen(navController: NavController) {
             .background(color = Yellow)
     ) {
         Text(
-            AnnotatedString(text = "Welcome to ", spanStyle = SpanStyle(fontSize = 25.sp, fontWeight = FontWeight.Bold)).plus(
+            AnnotatedString(text = "Welcome to ", spanStyle = SpanStyle(fontSize = LocalConfiguration.current.fontScale.times(20).sp, fontWeight = FontWeight.Bold)).plus(
                 AnnotatedString(
                     text = "Problem Tracker",
-                    spanStyle = SpanStyle(color = Orange,fontSize = 30.sp,fontWeight = FontWeight.Bold)
+                    spanStyle = SpanStyle(color = Orange,fontSize = LocalConfiguration.current.fontScale.times(30).sp,fontWeight = FontWeight.Bold)
                 )
             )
         )
         Spacer(modifier = Modifier.padding(20.dp))
-        Text(text = "Which one are you ?", style = TextStyle(fontSize = 20.sp,fontWeight = FontWeight.Bold))
+        Text(text = "Which one are you ?", style = TextStyle(fontSize = LocalConfiguration.current.fontScale.times(20).sp,fontWeight = FontWeight.Bold))
         Spacer(modifier = Modifier.padding(10.dp))
         FlowRow(modifier = Modifier
             .fillMaxWidth()
@@ -53,7 +53,7 @@ fun HomeScreen(navController: NavController) {
                 ),
                 modifier = Modifier.width(LocalConfiguration.current.screenWidthDp.dp/2 - 30.dp)
             ) {
-                Text(text = "ADMIN")
+                Text(text = "ADMIN", style = TextStyle(fontWeight = FontWeight.Bold))
             }
             Button(
                 onClick = { navController.navigate(Screen.UserScreen.route) },

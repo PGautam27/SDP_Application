@@ -23,8 +23,8 @@ fun NavBackIcon(navController: NavController) {
             IconButton(onClick = { navController.popBackStack() }) {
                 Icon(
                     Icons.Filled.ArrowBack, "backIcon", modifier = Modifier.width(
-                    LocalConfiguration.current.screenWidthDp.dp/15).height(
-                    LocalConfiguration.current.screenHeightDp.dp/15))
+                    LocalConfiguration.current.screenWidthDp.dp/12).height(
+                    LocalConfiguration.current.screenHeightDp.dp/12))
             }
         },
         backgroundColor = Yellow,
