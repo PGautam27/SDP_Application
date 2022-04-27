@@ -37,6 +37,9 @@ class MainActivity : ComponentActivity() {
                     ){
                         LoginScreen(navController = navController)
                     }
+                    composable(Screen.UserHomeScreen.route){
+
+                    }
                 }
             }
         }
