@@ -17,6 +17,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.publicproblemtrackingapp.ui.theme.Orange
 import com.example.publicproblemtrackingapp.ui.theme.Yellow
+import com.example.publicproblemtrackingapp.view.screens.Screen
 import com.example.publicproblemtrackingapp.view.user.components.NavBackIcon
 
 @Composable
@@ -36,7 +37,7 @@ fun UserScreen(navController: NavController) {
             Text(text = "Already Have an Account", style = TextStyle( fontSize = 25.sp,fontWeight = FontWeight.Bold))
             Spacer(modifier = Modifier.padding(10.dp))
             Button(
-                onClick = { /*TODO*/ },
+                onClick = { navController.navigate(Screen.UserLoginScreen.route) },
                 colors = ButtonDefaults.buttonColors(
                     backgroundColor = Orange,
                     contentColor = Yellow
