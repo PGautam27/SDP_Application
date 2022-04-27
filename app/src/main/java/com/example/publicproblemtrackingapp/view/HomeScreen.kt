@@ -8,9 +8,11 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -30,15 +32,15 @@ fun HomeScreen(navController: NavController) {
             .background(color = Yellow)
     ) {
         Text(
-            AnnotatedString(text = "Welcome to ", spanStyle = SpanStyle(fontSize = 20.sp)).plus(
+            AnnotatedString(text = "Welcome to ", spanStyle = SpanStyle(fontSize = 25.sp, fontWeight = FontWeight.Bold)).plus(
                 AnnotatedString(
                     text = "Problem Tracker",
-                    spanStyle = SpanStyle(color = Orange,fontSize = 25.sp)
+                    spanStyle = SpanStyle(color = Orange,fontSize = 30.sp,fontWeight = FontWeight.Bold)
                 )
             )
         )
         Spacer(modifier = Modifier.padding(20.dp))
-        Text(text = "Which one are you ?", style = TextStyle(fontSize = 20.sp))
+        Text(text = "Which one are you ?", style = TextStyle(fontSize = 20.sp,fontWeight = FontWeight.Bold))
         Spacer(modifier = Modifier.padding(10.dp))
         FlowRow(modifier = Modifier
             .fillMaxWidth()
@@ -48,7 +50,8 @@ fun HomeScreen(navController: NavController) {
                 colors = ButtonDefaults.buttonColors(
                     backgroundColor = Orange,
                     contentColor = Yellow
-                )
+                ),
+                modifier = Modifier.width(LocalConfiguration.current.screenWidthDp.dp/2 - 30.dp)
             ) {
                 Text(text = "ADMIN")
             }
@@ -57,7 +60,8 @@ fun HomeScreen(navController: NavController) {
                 colors = ButtonDefaults.buttonColors(
                     backgroundColor = Orange,
                     contentColor = Yellow
-                )
+                ),
+                modifier = Modifier.width(LocalConfiguration.current.screenWidthDp.dp/2 - 30.dp)
             ) {
                 Text(text = "USER")
             }
