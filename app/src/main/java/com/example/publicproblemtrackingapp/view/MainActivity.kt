@@ -38,6 +38,11 @@ class MainActivity : ComponentActivity() {
                     ){
                         HomeScreen(navController)
                     }
+                    composable(
+                        Screen.UserScreen.route
+                    ){
+                        UserScreen(navController = navController)
+                    }
                 }
             }
         }

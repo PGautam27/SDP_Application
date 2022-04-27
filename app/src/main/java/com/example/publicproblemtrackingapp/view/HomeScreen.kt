@@ -16,6 +16,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.publicproblemtrackingapp.ui.theme.Orange
 import com.example.publicproblemtrackingapp.ui.theme.Yellow
+import com.example.publicproblemtrackingapp.view.screens.Screen
 import com.google.accompanist.flowlayout.FlowRow
 import com.google.accompanist.flowlayout.MainAxisAlignment
 
@@ -52,7 +53,7 @@ fun HomeScreen(navController: NavController) {
                 Text(text = "ADMIN")
             }
             Button(
-                onClick = { /*TODO*/ },
+                onClick = { navController.navigate(Screen.UserScreen.route) },
                 colors = ButtonDefaults.buttonColors(
                     backgroundColor = Orange,
                     contentColor = Yellow
