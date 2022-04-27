@@ -17,6 +17,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.publicproblemtrackingapp.ui.theme.PublicProblemTrackingAppTheme
+import com.example.publicproblemtrackingapp.view.user.UserScreen
 import com.google.accompanist.flowlayout.FlowRow
 import com.google.accompanist.flowlayout.MainAxisAlignment
 
@@ -25,6 +26,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             PublicProblemTrackingAppTheme {
+                UserScreen()
             }
         }
     }
