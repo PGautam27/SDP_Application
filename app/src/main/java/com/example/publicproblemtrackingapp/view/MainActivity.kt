@@ -16,7 +16,12 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.example.publicproblemtrackingapp.ui.theme.PublicProblemTrackingAppTheme
+import com.example.publicproblemtrackingapp.view.HomeScreen.HomeScreen
+import com.example.publicproblemtrackingapp.view.screens.Screen
 import com.example.publicproblemtrackingapp.view.user.UserScreen
 import com.google.accompanist.flowlayout.FlowRow
 import com.google.accompanist.flowlayout.MainAxisAlignment
@@ -26,7 +31,14 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             PublicProblemTrackingAppTheme {
-                UserScreen()
+                val navController = rememberNavController()
+                NavHost(navController = navController, startDestination = Screen.HomeScreen.route){
+                    composable(
+                        Screen.HomeScreen.route
+                    ){
+                        HomeScreen(navController)
+                    }
+                }
             }
         }
     }

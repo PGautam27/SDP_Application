@@ -1,6 +1,6 @@
 package com.example.publicproblemtrackingapp.view.screens
 
-sealed class Screen(route:String){
+sealed class Screen(val route:String){
     object HomeScreen : Screen("home_screen")
     object UserScreen : Screen("user_screen")
     object AdminScreen : Screen("admin_screen")
