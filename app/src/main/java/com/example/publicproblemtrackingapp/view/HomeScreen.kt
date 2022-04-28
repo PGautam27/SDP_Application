@@ -46,7 +46,7 @@ fun HomeScreen(navController: NavController) {
             .fillMaxWidth()
             .align(Alignment.CenterHorizontally), mainAxisSpacing = 20.dp, mainAxisAlignment = MainAxisAlignment.Center) {
             Button(
-                onClick = { /*TODO*/ },
+                onClick = { navController.navigate(Screen.AdminScreen.route) },
                 colors = ButtonDefaults.buttonColors(
                     backgroundColor = Orange,
                     contentColor = Yellow

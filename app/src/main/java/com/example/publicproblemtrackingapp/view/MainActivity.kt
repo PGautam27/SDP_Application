@@ -11,6 +11,9 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.publicproblemtrackingapp.ui.theme.PublicProblemTrackingAppTheme
 import com.example.publicproblemtrackingapp.view.HomeScreen.HomeScreen
+import com.example.publicproblemtrackingapp.view.admin.AdminHomeScreen
+import com.example.publicproblemtrackingapp.view.admin.AdminLoginScreen
+import com.example.publicproblemtrackingapp.view.admin.AdminScreen
 import com.example.publicproblemtrackingapp.view.screens.Screen
 import com.example.publicproblemtrackingapp.view.user.UserScreen
 import com.example.publicproblemtrackingapp.view.user.loginAndSignUp.LoginScreen
@@ -46,6 +49,21 @@ class MainActivity : ComponentActivity() {
                         Screen.UserOtpScreen.route
                     ){
                         UserOtpScreen(navController = navController)
+                    }
+                    composable(
+                        Screen.AdminScreen.route
+                    ){
+                        AdminScreen(navController = navController)
+                    }
+                    composable(
+                        Screen.AdminLoginScreen.route
+                    ){
+                        AdminLoginScreen(navController = navController)
+                    }
+                    composable(
+                        Screen.AdminHomeScreen.route
+                    ){
+                        AdminHomeScreen(navController = navController)
                     }
                 }
             }
