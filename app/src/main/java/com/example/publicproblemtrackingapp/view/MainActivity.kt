@@ -59,7 +59,7 @@ class MainActivity : ComponentActivity() {
                     composable(
                         Screen.AdminLoginScreen.route
                     ){
-                        AdminLoginScreen(navController = navController)
+                        AdminLoginScreen(navController = navController, context = this@MainActivity)
                     }
                     composable(
                         Screen.AdminHomeScreen.route

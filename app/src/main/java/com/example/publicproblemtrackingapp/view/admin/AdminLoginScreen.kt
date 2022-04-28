@@ -1,5 +1,8 @@
 package com.example.publicproblemtrackingapp.view.admin
 
+import android.util.Log
+import android.widget.Toast
+import androidx.activity.ComponentActivity
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions
@@ -14,6 +17,8 @@ import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.BaselineShift
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -22,12 +27,13 @@ import com.example.publicproblemtrackingapp.ui.theme.Orange
 import com.example.publicproblemtrackingapp.ui.theme.Yellow
 import com.example.publicproblemtrackingapp.view.screens.Screen
 import com.example.publicproblemtrackingapp.view.user.components.NavBackIcon
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 @Composable
-fun AdminLoginScreen(navController: NavController) {
-    val mobileNumberValue = remember {
-        mutableStateOf("")
-    }
+fun AdminLoginScreen(navController: NavController,context : ComponentActivity) {
+
+    val auth = Firebase.auth
     Scaffold(
         topBar = {
             NavBackIcon(navController = navController)
@@ -40,46 +46,92 @@ fun AdminLoginScreen(navController: NavController) {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text(text = "Enter Your Mobile number", fontSize = LocalConfiguration.current.fontScale.times(25).sp, fontWeight = FontWeight.Bold)
+            val emailValue = remember { mutableStateOf(TextFieldValue()) }
+            val passwordValue = remember { mutableStateOf(TextFieldValue()) }
+            val enabledValue = remember { mutableStateOf(false) }
+            Text(text = "LOGIN SCREEN", fontSize = LocalConfiguration.current.fontScale.times(30).sp, fontWeight = FontWeight.Bold)
             Spacer(modifier = Modifier.padding(10.dp))
+            Text(text = "Enter Your MailId", fontSize = LocalConfiguration.current.fontScale.times(25).sp, fontWeight = FontWeight.Bold)
+            Spacer(modifier = Modifier.padding(1.dp))
             OutlinedTextField(
-                value = mobileNumberValue.value,
+                value = emailValue.value,
                 onValueChange = {
-                    mobileNumberValue.value = it
+                    emailValue.value = it
                 },
                 placeholder = {
                     Text(
-                        text = "_ _ _ _ _ _ _ _ _ _",
+                        text = "xyz@gmail.com",
                         fontWeight = FontWeight.Bold,
                         color = Color.Black
                     )
                 },
-                label = { Text(text = "Mobile Number", fontWeight = FontWeight.Bold) },
+                label = { Text(text = "Email ID", fontWeight = FontWeight.Bold) },
                 colors = TextFieldDefaults.outlinedTextFieldColors(
                     focusedBorderColor = Orange,
                     unfocusedBorderColor = Orange,
                     unfocusedLabelColor = Orange,
                     focusedLabelColor = Orange
                 ),
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
                 maxLines = 1,
-                leadingIcon = { Text(text = " +91 ",fontWeight = FontWeight.Bold, color = Color.Black, fontSize = LocalConfiguration.current.fontScale.times(20).sp) },
+                textStyle = TextStyle(color = Color.Black, fontWeight = FontWeight.Bold, baselineShift = BaselineShift.None, fontSize = LocalConfiguration.current.fontScale.times(20).sp,  )
+            )
+            Spacer(modifier = Modifier.padding(10.dp))
+            Text(text = "Password", fontSize = LocalConfiguration.current.fontScale.times(25).sp, fontWeight = FontWeight.Bold)
+            Spacer(modifier = Modifier.padding(1.dp))
+            OutlinedTextField(
+                value = passwordValue.value,
+                onValueChange = {
+                    passwordValue.value = it
+                    if (emailValue.value!=null && passwordValue.value!=null){
+                        enabledValue.value = true
+                    }
+                },
+                visualTransformation = PasswordVisualTransformation(),
+                label = { Text(text = "Password", fontWeight = FontWeight.Bold) },
+                colors = TextFieldDefaults.outlinedTextFieldColors(
+                    focusedBorderColor = Orange,
+                    unfocusedBorderColor = Orange,
+                    unfocusedLabelColor = Orange,
+                    focusedLabelColor = Orange
+                ),
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
+                maxLines = 1,
                 textStyle = TextStyle(color = Color.Black, fontWeight = FontWeight.Bold, baselineShift = BaselineShift.None, fontSize = LocalConfiguration.current.fontScale.times(20).sp,  )
             )
             Spacer(modifier = Modifier.padding(10.dp))
             Button(
-                onClick = { navController.navigate(Screen.AdminHomeScreen.route) },
+                onClick = {
+                    auth.signInWithEmailAndPassword(
+                        emailValue.value.text.trim(),
+                        passwordValue.value.text.trim()
+                    ).addOnCompleteListener(context){task ->
+                        if (task.isSuccessful){
+                            Log.d("AUTH","SignInWithEmail : Success")
+                            navController.navigate(Screen.AdminHomeScreen.route)
+                        }
+                        else{
+                            Log.w("SignInWithEmail:Failure",task.exception)
+                            Toast.makeText(context, "SignIn failed.",
+                                Toast.LENGTH_SHORT).show()
+                        }
+                    }
+//                    navController.navigate(Screen.UserHomeScreen.route)
+                },
                 colors = ButtonDefaults.buttonColors(
                     backgroundColor = Orange,
-                    contentColor = Yellow
+                    contentColor = Yellow,
+                    disabledBackgroundColor = Orange,
+                    disabledContentColor = Yellow
                 ),
+                enabled = enabledValue.value,
                 modifier = Modifier
                     .height(LocalConfiguration.current.screenHeightDp.dp / 15)
                     .width(
                         LocalConfiguration.current.screenWidthDp.dp - 200.dp
                     )
             ) {
-                Text(text = "SEND OTP", style = TextStyle(fontWeight = FontWeight.Bold, fontSize = LocalConfiguration.current.fontScale.times(15).sp))
+                Text(text = "LOGIN", style = TextStyle(fontWeight = FontWeight.Bold, fontSize = LocalConfiguration.current.fontScale.times(15).sp))
             }
         }
     }
