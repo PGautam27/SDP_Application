@@ -70,7 +70,7 @@ fun LoginScreen(navController: NavController) {
             )
             Spacer(modifier = Modifier.padding(10.dp))
             Button(
-                onClick = { navController.navigate(Screen.UserOtpScreen.route) },
+                onClick = { navController.navigate(Screen.UserHomeScreen.route) },
                 colors = ButtonDefaults.buttonColors(
                     backgroundColor = Orange,
                     contentColor = Yellow

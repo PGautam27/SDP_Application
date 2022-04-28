@@ -14,6 +14,7 @@ import com.example.publicproblemtrackingapp.view.HomeScreen.HomeScreen
 import com.example.publicproblemtrackingapp.view.screens.Screen
 import com.example.publicproblemtrackingapp.view.user.UserScreen
 import com.example.publicproblemtrackingapp.view.user.loginAndSignUp.LoginScreen
+import com.example.publicproblemtrackingapp.view.user.loginAndSignUp.UserHomeScreen
 import com.example.publicproblemtrackingapp.view.user.loginAndSignUp.UserOtpScreen
 
 class MainActivity : ComponentActivity() {
@@ -39,7 +40,7 @@ class MainActivity : ComponentActivity() {
                         LoginScreen(navController = navController)
                     }
                     composable(Screen.UserHomeScreen.route){
-                        UserScreen(navController = navController)
+                        UserHomeScreen(navController = navController)
                     }
                     composable(
                         Screen.UserOtpScreen.route

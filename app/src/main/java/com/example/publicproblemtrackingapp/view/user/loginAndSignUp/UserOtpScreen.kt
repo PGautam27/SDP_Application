@@ -21,11 +21,8 @@ import androidx.navigation.NavController
 
 @Composable
 fun UserOtpScreen(navController: NavController) {
-    val otpVal = null
     Column(verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.fillMaxSize()) {
-        OTPTextFields(length = 6 ){
-                getOpt -> otpVal
-        }
+
     }
 }
 @Composable
