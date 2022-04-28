@@ -1,5 +1,9 @@
 package com.example.publicproblemtrackingapp.view.user.loginAndSignUp
 
+import android.content.Context
+import android.util.Log
+import android.widget.Toast
+import androidx.activity.ComponentActivity
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions
@@ -15,6 +19,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.BaselineShift
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -23,12 +28,12 @@ import com.example.publicproblemtrackingapp.ui.theme.Orange
 import com.example.publicproblemtrackingapp.ui.theme.Yellow
 import com.example.publicproblemtrackingapp.view.screens.Screen
 import com.example.publicproblemtrackingapp.view.user.components.NavBackIcon
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 @Composable
-fun UserSignUpScreen(navController: NavController) {
-    val mobileNumberValue = remember {
-        mutableStateOf("")
-    }
+fun UserSignUpScreen(navController: NavController, context: ComponentActivity) {
+    val auth = Firebase.auth
     Scaffold(
         topBar = {
             NavBackIcon(navController = navController)
@@ -41,12 +46,17 @@ fun UserSignUpScreen(navController: NavController) {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
+            val emailValue = remember { mutableStateOf(TextFieldValue()) }
+            val passwordValue = remember { mutableStateOf(TextFieldValue()) }
+            val enabledValue = remember { mutableStateOf(false) }
+            Text(text = "SIGNUP SCREEN", fontSize = LocalConfiguration.current.fontScale.times(30).sp, fontWeight = FontWeight.Bold)
+            Spacer(modifier = Modifier.padding(10.dp))
             Text(text = "Enter Your MailId", fontSize = LocalConfiguration.current.fontScale.times(25).sp, fontWeight = FontWeight.Bold)
             Spacer(modifier = Modifier.padding(1.dp))
             OutlinedTextField(
-                value = mobileNumberValue.value,
+                value = emailValue.value,
                 onValueChange = {
-                    mobileNumberValue.value = it
+                    emailValue.value = it
                 },
                 placeholder = {
                     Text(
@@ -62,7 +72,7 @@ fun UserSignUpScreen(navController: NavController) {
                     unfocusedLabelColor = Orange,
                     focusedLabelColor = Orange
                 ),
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
                 maxLines = 1,
                 textStyle = TextStyle(color = Color.Black, fontWeight = FontWeight.Bold, baselineShift = BaselineShift.None, fontSize = LocalConfiguration.current.fontScale.times(20).sp,  )
             )
@@ -70,9 +80,12 @@ fun UserSignUpScreen(navController: NavController) {
             Text(text = "Password", fontSize = LocalConfiguration.current.fontScale.times(25).sp, fontWeight = FontWeight.Bold)
             Spacer(modifier = Modifier.padding(1.dp))
             OutlinedTextField(
-                value = mobileNumberValue.value,
+                value = passwordValue.value,
                 onValueChange = {
-                    mobileNumberValue.value = it
+                    passwordValue.value = it
+                    if (emailValue.value!=null && passwordValue.value!=null){
+                        enabledValue.value = true
+                    }
                 },
                 visualTransformation = PasswordVisualTransformation(),
                 label = { Text(text = "Password", fontWeight = FontWeight.Bold) },
@@ -88,11 +101,31 @@ fun UserSignUpScreen(navController: NavController) {
             )
             Spacer(modifier = Modifier.padding(10.dp))
             Button(
-                onClick = { navController.navigate(Screen.UserHomeScreen.route) },
+                onClick = {
+                    auth.createUserWithEmailAndPassword(
+                        emailValue.value.text.trim(),
+                        passwordValue.value.text.trim()
+                    ).addOnCompleteListener(context) { task ->
+                        if (task.isSuccessful) {
+                            Log.d("AUTH", "Success!")
+                            navController.navigate(Screen.UserLoginScreen.route)
+                        } else {
+                            Log.w("SignUpWithEmail:Failure", task.exception)
+                            Toast.makeText(
+                                context, "You Already Have an account Or Wrong credentials",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
+//                    navController.navigate(Screen.UserHomeScreen.route)
+                          },
                 colors = ButtonDefaults.buttonColors(
                     backgroundColor = Orange,
-                    contentColor = Yellow
+                    contentColor = Yellow,
+                    disabledContentColor = Yellow,
+                    disabledBackgroundColor = Orange
                 ),
+                enabled = enabledValue.value,
                 modifier = Modifier
                     .height(LocalConfiguration.current.screenHeightDp.dp / 15)
                     .width(

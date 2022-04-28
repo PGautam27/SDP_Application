@@ -41,7 +41,7 @@ class MainActivity : ComponentActivity() {
                     composable(
                         Screen.UserLoginScreen.route
                     ){
-                        LoginScreen(navController = navController)
+                        LoginScreen(navController = navController, context = this@MainActivity)
                     }
                     composable(Screen.UserHomeScreen.route){
                         UserHomeScreen(navController = navController)
@@ -69,7 +69,7 @@ class MainActivity : ComponentActivity() {
                     composable(
                         Screen.UserSignUpScreen.route
                     ){
-                        UserSignUpScreen(navController = navController)
+                        UserSignUpScreen(navController = navController, context = this@MainActivity)
                     }
                 }
             }
