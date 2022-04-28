@@ -3,7 +3,7 @@ package com.example.publicproblemtrackingapp.view
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.material.*
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
@@ -18,7 +18,6 @@ import com.example.publicproblemtrackingapp.view.screens.Screen
 import com.example.publicproblemtrackingapp.view.user.UserScreen
 import com.example.publicproblemtrackingapp.view.user.loginAndSignUp.LoginScreen
 import com.example.publicproblemtrackingapp.view.user.loginAndSignUp.UserHomeScreen
-import com.example.publicproblemtrackingapp.view.user.loginAndSignUp.UserOtpScreen
 import com.example.publicproblemtrackingapp.view.user.loginAndSignUp.UserSignUpScreen
 
 class MainActivity : ComponentActivity() {
@@ -45,11 +44,6 @@ class MainActivity : ComponentActivity() {
                     }
                     composable(Screen.UserHomeScreen.route){
                         UserHomeScreen(navController = navController)
-                    }
-                    composable(
-                        Screen.UserOtpScreen.route
-                    ){
-                        UserOtpScreen(navController = navController)
                     }
                     composable(
                         Screen.AdminScreen.route

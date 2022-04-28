@@ -1,4 +1,7 @@
 package com.example.publicproblemtrackingapp.view.user
 
-class ReportProblemViewModel {
+import androidx.lifecycle.ViewModel
+
+class ReportProblemViewModel():ViewModel() {
+
 }
