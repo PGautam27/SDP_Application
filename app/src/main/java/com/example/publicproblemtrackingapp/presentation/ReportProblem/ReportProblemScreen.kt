@@ -22,6 +22,5 @@ fun ReportProblemScreen() {
     ) {
         Text(text = "REPORT THE PROBLEM", fontSize = LocalConfiguration.current.fontScale.times(25).sp)
         Spacer(modifier = Modifier.padding(LocalConfiguration.current.screenHeightDp.dp/30))
-
     }
 }
