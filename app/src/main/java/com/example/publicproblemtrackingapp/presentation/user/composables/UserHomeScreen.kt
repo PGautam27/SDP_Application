@@ -1,4 +1,4 @@
-package com.example.publicproblemtrackingapp.view.user.loginAndSignUp
+package com.example.publicproblemtrackingapp.presentation.user.composables
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -16,9 +16,6 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.publicproblemtrackingapp.ui.theme.Orange
 import com.example.publicproblemtrackingapp.ui.theme.Yellow
-import com.google.accompanist.flowlayout.FlowColumn
-import com.google.accompanist.flowlayout.FlowCrossAxisAlignment
-import com.google.accompanist.flowlayout.MainAxisAlignment
 
 @Composable
 fun UserHomeScreen(navController: NavController) {

@@ -1,4 +1,4 @@
-package com.example.publicproblemtrackingapp.view.HomeScreen
+package com.example.publicproblemtrackingapp.presentation.HomeScreen
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -18,7 +18,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.publicproblemtrackingapp.ui.theme.Orange
 import com.example.publicproblemtrackingapp.ui.theme.Yellow
-import com.example.publicproblemtrackingapp.view.screens.Screen
+import com.example.publicproblemtrackingapp.presentation.screens.Screen
 import com.google.accompanist.flowlayout.FlowRow
 import com.google.accompanist.flowlayout.MainAxisAlignment
 

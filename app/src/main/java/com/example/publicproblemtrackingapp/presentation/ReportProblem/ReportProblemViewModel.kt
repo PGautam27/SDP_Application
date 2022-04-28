@@ -1,4 +1,4 @@
-package com.example.publicproblemtrackingapp.view.user
+package com.example.publicproblemtrackingapp.presentation.ReportProblem
 
 import androidx.lifecycle.ViewModel
 

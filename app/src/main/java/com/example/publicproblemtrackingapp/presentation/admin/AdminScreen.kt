@@ -1,4 +1,4 @@
-package com.example.publicproblemtrackingapp.view.admin
+package com.example.publicproblemtrackingapp.presentation.admin
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -14,8 +14,8 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.publicproblemtrackingapp.ui.theme.Orange
 import com.example.publicproblemtrackingapp.ui.theme.Yellow
-import com.example.publicproblemtrackingapp.view.screens.Screen
-import com.example.publicproblemtrackingapp.view.user.components.NavBackIcon
+import com.example.publicproblemtrackingapp.presentation.screens.Screen
+import com.example.publicproblemtrackingapp.presentation.user.components.NavBackIcon
 
 @Composable
 fun AdminScreen(navController: NavController) {

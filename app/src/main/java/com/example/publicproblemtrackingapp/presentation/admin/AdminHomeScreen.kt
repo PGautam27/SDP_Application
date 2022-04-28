@@ -1,4 +1,4 @@
-package com.example.publicproblemtrackingapp.view.admin
+package com.example.publicproblemtrackingapp.presentation.admin
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*

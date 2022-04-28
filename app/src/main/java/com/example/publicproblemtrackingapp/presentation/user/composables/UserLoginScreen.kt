@@ -1,4 +1,4 @@
-package com.example.publicproblemtrackingapp.view.user.loginAndSignUp
+package com.example.publicproblemtrackingapp.presentation.user.composables
 
 import android.util.Log
 import android.widget.Toast
@@ -25,13 +25,13 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.publicproblemtrackingapp.ui.theme.Orange
 import com.example.publicproblemtrackingapp.ui.theme.Yellow
-import com.example.publicproblemtrackingapp.view.screens.Screen
-import com.example.publicproblemtrackingapp.view.user.components.NavBackIcon
+import com.example.publicproblemtrackingapp.presentation.screens.Screen
+import com.example.publicproblemtrackingapp.presentation.user.components.NavBackIcon
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
 @Composable
-fun LoginScreen(navController: NavController,context: ComponentActivity) {
+fun UserLoginScreen(navController: NavController,context: ComponentActivity) {
     val auth = Firebase.auth
     Scaffold(
         topBar = {

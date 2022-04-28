@@ -1,4 +1,4 @@
-package com.example.publicproblemtrackingapp.view
+package com.example.publicproblemtrackingapp.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -10,15 +10,15 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.publicproblemtrackingapp.ui.theme.PublicProblemTrackingAppTheme
-import com.example.publicproblemtrackingapp.view.HomeScreen.HomeScreen
-import com.example.publicproblemtrackingapp.view.admin.AdminHomeScreen
-import com.example.publicproblemtrackingapp.view.admin.AdminLoginScreen
-import com.example.publicproblemtrackingapp.view.admin.AdminScreen
-import com.example.publicproblemtrackingapp.view.screens.Screen
-import com.example.publicproblemtrackingapp.view.user.UserScreen
-import com.example.publicproblemtrackingapp.view.user.loginAndSignUp.LoginScreen
-import com.example.publicproblemtrackingapp.view.user.loginAndSignUp.UserHomeScreen
-import com.example.publicproblemtrackingapp.view.user.loginAndSignUp.UserSignUpScreen
+import com.example.publicproblemtrackingapp.presentation.HomeScreen.HomeScreen
+import com.example.publicproblemtrackingapp.presentation.admin.AdminHomeScreen
+import com.example.publicproblemtrackingapp.presentation.admin.AdminLoginScreen
+import com.example.publicproblemtrackingapp.presentation.admin.AdminScreen
+import com.example.publicproblemtrackingapp.presentation.screens.Screen
+import com.example.publicproblemtrackingapp.presentation.user.UserScreen
+import com.example.publicproblemtrackingapp.presentation.user.composables.UserHomeScreen
+import com.example.publicproblemtrackingapp.presentation.user.composables.UserLoginScreen
+import com.example.publicproblemtrackingapp.presentation.user.composables.UserSignUpScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,7 +40,7 @@ class MainActivity : ComponentActivity() {
                     composable(
                         Screen.UserLoginScreen.route
                     ){
-                        LoginScreen(navController = navController, context = this@MainActivity)
+                        UserLoginScreen(navController = navController, context = this@MainActivity)
                     }
                     composable(Screen.UserHomeScreen.route){
                         UserHomeScreen(navController = navController)
