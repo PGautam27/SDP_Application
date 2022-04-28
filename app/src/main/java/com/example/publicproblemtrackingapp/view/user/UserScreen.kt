@@ -56,7 +56,7 @@ fun UserScreen(navController: NavController) {
             Text(text = "Don't have One?",style = TextStyle( fontSize = LocalConfiguration.current.fontScale.times(25).sp, fontWeight = FontWeight.Bold))
             Spacer(modifier = Modifier.padding(10.dp))
             Button(
-                onClick = { /*TODO*/ },
+                onClick = { navController.navigate(Screen.UserSignUpScreen.route) },
                 colors = ButtonDefaults.buttonColors(
                     backgroundColor = Orange,
                     contentColor = Yellow

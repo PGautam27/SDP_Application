@@ -34,7 +34,7 @@ fun AdminScreen(navController: NavController) {
             Text(text = "Welcome Admin", style = TextStyle( fontSize = LocalConfiguration.current.fontScale.times(25).sp,fontWeight = FontWeight.Bold))
             Spacer(modifier = Modifier.padding(10.dp))
             Button(
-                onClick = { navController.navigate(Screen.UserLoginScreen.route) },
+                onClick = { navController.navigate(Screen.AdminLoginScreen.route) },
                 colors = ButtonDefaults.buttonColors(
                     backgroundColor = Orange,
                     contentColor = Yellow

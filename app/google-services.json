@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "689968981759",
+    "project_id": "publicproblemtracker",
+    "storage_bucket": "publicproblemtracker.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:689968981759:android:8196f4199decfbcc54ceca",
+        "android_client_info": {
+          "package_name": "com.example.publicproblemtrackingapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "689968981759-0cp1ibenfh2u6e730b29aatrdie1ceee.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVxVYDZfejJWJGdSLfsq6PR5-ZGQBbFXA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "689968981759-0cp1ibenfh2u6e730b29aatrdie1ceee.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

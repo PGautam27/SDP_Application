@@ -1,5 +1,6 @@
 package com.example.publicproblemtrackingapp.view.user.loginAndSignUp
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.MaterialTheme
@@ -18,11 +19,22 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.example.publicproblemtrackingapp.ui.theme.Yellow
 
 @Composable
 fun UserOtpScreen(navController: NavController) {
-    Column(verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.fillMaxSize()) {
 
+    Column(
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier
+            .fillMaxSize()
+            .background(color = Yellow)
+    ) {
+        (0 until  6).forEach{
+
+
+        }
     }
 }
 @Composable

@@ -19,6 +19,7 @@ import com.example.publicproblemtrackingapp.view.user.UserScreen
 import com.example.publicproblemtrackingapp.view.user.loginAndSignUp.LoginScreen
 import com.example.publicproblemtrackingapp.view.user.loginAndSignUp.UserHomeScreen
 import com.example.publicproblemtrackingapp.view.user.loginAndSignUp.UserOtpScreen
+import com.example.publicproblemtrackingapp.view.user.loginAndSignUp.UserSignUpScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -64,6 +65,11 @@ class MainActivity : ComponentActivity() {
                         Screen.AdminHomeScreen.route
                     ){
                         AdminHomeScreen(navController = navController)
+                    }
+                    composable(
+                        Screen.UserSignUpScreen.route
+                    ){
+                        UserSignUpScreen(navController = navController)
                     }
                 }
             }
