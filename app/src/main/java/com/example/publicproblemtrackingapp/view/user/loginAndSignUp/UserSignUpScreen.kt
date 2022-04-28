@@ -1,6 +1,5 @@
 package com.example.publicproblemtrackingapp.view.user.loginAndSignUp
 
-import android.content.Context
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.ComponentActivity
