@@ -9,18 +9,18 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.publicproblemtrackingapp.ui.theme.PublicProblemTrackingAppTheme
 import com.example.publicproblemtrackingapp.presentation.HomeScreen.HomeScreen
 import com.example.publicproblemtrackingapp.presentation.ReportProblem.ReportProblemScreen
 import com.example.publicproblemtrackingapp.presentation.admin.AdminHomeScreen
 import com.example.publicproblemtrackingapp.presentation.admin.AdminLoginScreen
 import com.example.publicproblemtrackingapp.presentation.admin.AdminScreen
-import com.example.publicproblemtrackingapp.presentation.admin.adminProblemRetrieval.AdminProblemRerievalScreen
+import com.example.publicproblemtrackingapp.presentation.admin.adminProblemRetrieval.AdminProblemRetrievalScreen
 import com.example.publicproblemtrackingapp.presentation.screens.Screen
 import com.example.publicproblemtrackingapp.presentation.user.UserScreen
 import com.example.publicproblemtrackingapp.presentation.user.composables.UserHomeScreen
 import com.example.publicproblemtrackingapp.presentation.user.composables.UserLoginScreen
 import com.example.publicproblemtrackingapp.presentation.user.composables.UserSignUpScreen
+import com.example.publicproblemtrackingapp.ui.theme.PublicProblemTrackingAppTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,7 +28,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             PublicProblemTrackingAppTheme {
                 val navController = rememberNavController()
-                NavHost(navController = navController, startDestination = Screen.HomeScreen.route){
+                NavHost(navController = navController, startDestination = Screen.AdminProblemRetrievalScreen.route){
                     composable(
                         Screen.HomeScreen.route
                     ){
@@ -75,7 +75,7 @@ class MainActivity : ComponentActivity() {
                     composable(
                         Screen.AdminProblemRetrievalScreen.route
                     ){
-                        AdminProblemRerievalScreen()
+                        AdminProblemRetrievalScreen()
                     }
                 }
             }
