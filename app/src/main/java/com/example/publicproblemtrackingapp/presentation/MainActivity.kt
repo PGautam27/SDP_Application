@@ -28,7 +28,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             PublicProblemTrackingAppTheme {
                 val navController = rememberNavController()
-                NavHost(navController = navController, startDestination = Screen.AdminProblemRetrievalScreen.route){
+                NavHost(navController = navController, startDestination = Screen.HomeScreen.route){
                     composable(
                         Screen.HomeScreen.route
                     ){

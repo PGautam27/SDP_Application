@@ -22,7 +22,7 @@ import com.example.publicproblemtrackingapp.ui.theme.Orange
 import com.example.publicproblemtrackingapp.ui.theme.Yellow
 
 @Composable
-fun ReportProblemScreen(viewModel: DataViewModel = DataViewModel(), context : ComponentActivity) {
+fun ReportProblemScreen(viewModel: ReportProblemViewModel = ReportProblemViewModel(), context : ComponentActivity) {
     val categoryValue = remember{ mutableStateOf("") }
     val reasonValue = remember { mutableStateOf("") }
     val locationValue = remember{ mutableStateOf("") }
