@@ -1,6 +1,5 @@
 package com.example.publicproblemtrackingapp.presentation.ReportProblem
 
-import android.util.Log
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.compose.foundation.background
@@ -23,7 +22,7 @@ import com.example.publicproblemtrackingapp.ui.theme.Orange
 import com.example.publicproblemtrackingapp.ui.theme.Yellow
 
 @Composable
-fun ReportProblemScreen(viewModel: ReportProblemViewModel = ReportProblemViewModel(),context : ComponentActivity) {
+fun ReportProblemScreen(viewModel: DataViewModel = DataViewModel(), context : ComponentActivity) {
     val categoryValue = remember{ mutableStateOf("") }
     val reasonValue = remember { mutableStateOf("") }
     val locationValue = remember{ mutableStateOf("") }

@@ -75,7 +75,7 @@ class MainActivity : ComponentActivity() {
                     composable(
                         Screen.AdminProblemRetrievalScreen.route
                     ){
-                        AdminProblemRetrievalScreen()
+                        AdminProblemRetrievalScreen(context = this@MainActivity)
                     }
                 }
             }
