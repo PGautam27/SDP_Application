@@ -10,4 +10,5 @@ sealed class Screen(val route:String){
     object AdminLoginScreen : Screen("admin_login_screen")
     object UserHomeScreen : Screen("user_home_screen")
     object ReportProblemScreen : Screen("report_problem_screen")
+    object AdminProblemRetrievalScreen : Screen("admin_problem_retrieval_screen")
 }

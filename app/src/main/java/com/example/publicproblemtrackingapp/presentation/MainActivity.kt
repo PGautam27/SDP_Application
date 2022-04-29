@@ -15,6 +15,7 @@ import com.example.publicproblemtrackingapp.presentation.ReportProblem.ReportPro
 import com.example.publicproblemtrackingapp.presentation.admin.AdminHomeScreen
 import com.example.publicproblemtrackingapp.presentation.admin.AdminLoginScreen
 import com.example.publicproblemtrackingapp.presentation.admin.AdminScreen
+import com.example.publicproblemtrackingapp.presentation.admin.adminProblemRetrieval.AdminProblemRerievalScreen
 import com.example.publicproblemtrackingapp.presentation.screens.Screen
 import com.example.publicproblemtrackingapp.presentation.user.UserScreen
 import com.example.publicproblemtrackingapp.presentation.user.composables.UserHomeScreen
@@ -70,6 +71,11 @@ class MainActivity : ComponentActivity() {
                         Screen.ReportProblemScreen.route
                     ){
                         ReportProblemScreen(context = this@MainActivity)
+                    }
+                    composable(
+                        Screen.AdminProblemRetrievalScreen.route
+                    ){
+                        AdminProblemRerievalScreen()
                     }
                 }
             }
