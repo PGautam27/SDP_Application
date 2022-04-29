@@ -14,6 +14,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.publicproblemtrackingapp.presentation.screens.Screen
 import com.example.publicproblemtrackingapp.ui.theme.Orange
 import com.example.publicproblemtrackingapp.ui.theme.Yellow
 
@@ -27,9 +28,12 @@ fun UserHomeScreen(navController: NavController) {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        buttonNames.forEach { it ->
+        buttonNames.forEachIndexed { it,s ->
             Button(
-                onClick = { /*TODO*/ },
+                onClick = {
+                    if (it==2)
+                        navController.navigate(Screen.ReportProblemScreen.route)
+                          },
                 colors = ButtonDefaults.buttonColors(
                     backgroundColor = Orange,
                     contentColor = Yellow
@@ -40,7 +44,7 @@ fun UserHomeScreen(navController: NavController) {
                         LocalConfiguration.current.screenWidthDp.dp - 40.dp
                     )
             ) {
-                Text(text = it, style = TextStyle(fontWeight = FontWeight.Bold), fontSize = LocalConfiguration.current.fontScale.times(22).sp)
+                Text(text = s, style = TextStyle(fontWeight = FontWeight.Bold), fontSize = LocalConfiguration.current.fontScale.times(22).sp)
             }
             Spacer(modifier = Modifier.padding(LocalConfiguration.current.screenHeightDp.dp/27))
         }
