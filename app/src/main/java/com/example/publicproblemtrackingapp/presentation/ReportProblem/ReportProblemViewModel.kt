@@ -8,8 +8,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 
 class ReportProblemViewModel():ViewModel() {
 
-    val database = Firebase.database
-    val myRef = database.getReference("Report Problem")
+    private val database = Firebase.database
+    private val myRef = database.getReference("Report Problem")
 
     fun updateData(problemCategory:String,reason : String,location:String,date:String){
         val reportProblem = ReportProblem(problemCategory,date,location,reason)
