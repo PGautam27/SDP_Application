@@ -116,7 +116,6 @@ fun UserSignUpScreen(navController: NavController, context: ComponentActivity) {
                             ).show()
                         }
                     }
-//                    navController.navigate(Screen.UserHomeScreen.route)
                           },
                 colors = ButtonDefaults.buttonColors(
                     backgroundColor = Orange,
