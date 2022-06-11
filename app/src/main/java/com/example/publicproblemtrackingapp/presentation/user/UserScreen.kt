@@ -67,6 +67,10 @@ fun UserScreen(navController: NavController) {
                 Text(text = "SIGN UP", style = TextStyle(fontWeight = FontWeight.Bold))
             }
         }
+       Spacer(modifier = Modifier.padding(20.dp))
+    Divider(modifier = Modifier
+        .width(LocalConfiguration.current.screenWidthDp.dp)
+        .height(5.dp))
     }
 
 }
