@@ -28,7 +28,7 @@ fun UserScreen(navController: NavController) {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
-                .background(color = Yellow)
+                .background(color =  Yellow)
                 .fillMaxSize()
         ) {
             Text(text = "Already Have an Account", style = TextStyle( fontSize = LocalConfiguration.current.fontScale.times(25).sp,fontWeight = FontWeight.Bold))
@@ -37,7 +37,7 @@ fun UserScreen(navController: NavController) {
                 onClick = { navController.navigate(Screen.UserLoginScreen.route) },
                 colors = ButtonDefaults.buttonColors(
                     backgroundColor = Orange,
-                    contentColor = Yellow
+                    contentColor =  Yellow
                 ),
                 modifier = Modifier
                     .height(LocalConfiguration.current.screenHeightDp.dp / 10)
@@ -56,7 +56,7 @@ fun UserScreen(navController: NavController) {
                 onClick = { navController.navigate(Screen.UserSignUpScreen.route) },
                 colors = ButtonDefaults.buttonColors(
                     backgroundColor = Orange,
-                    contentColor = Yellow
+                    contentColor =  Yellow
                 ),
                 modifier = Modifier
                     .height(LocalConfiguration.current.screenHeightDp.dp / 10)
@@ -67,6 +67,10 @@ fun UserScreen(navController: NavController) {
                 Text(text = "SIGN UP", style = TextStyle(fontWeight = FontWeight.Bold))
             }
         }
+       Spacer(modifier = Modifier.padding(20.dp))
+    Divider(modifier = Modifier
+        .width(LocalConfiguration.current.screenWidthDp.dp)
+        .height(5.dp))
     }
 
 }
